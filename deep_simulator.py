@@ -103,6 +103,10 @@ class DeepSimulator:
         log.rename(columns={'user': 'resource'}, inplace=True)
         log['caseid'] = log['caseid'].astype(str)
         log['caseid'] = 'Case' + log['caseid']
+        if log["end_timestamp"].dt.tz:
+            log["end_timestamp"] = log["end_timestamp"].dt.tz_convert(None)
+        if log["start_timestamp"].dt.tz:
+            log["start_timestamp"] = log["start_timestamp"].dt.tz_convert(None)
         evaluator = sim.SimilarityEvaluator(log, sim_log, parms['gl'], max_cases=1000)
         metrics = [parms['gl']['sim_metric']]
         if 'add_metrics' in parms['gl'].keys():

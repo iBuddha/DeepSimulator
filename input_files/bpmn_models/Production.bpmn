@@ -1175,7 +1175,7 @@ node_2a06ebad-8d2e-4236-9702-ae543d4bbe67</outgoing>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
-  <qbp:processSimulationInfo xmlns:qbp="http://www.qbp-simulator.com/Schema201212" id="qbp_8cb2d2bd-ec38-4d11-8875-2c76eab49d1b" processInstances="45" startDateTime="2012-03-12T23:59:59.999999+00:00" currency="EUR">
+  <qbp:processSimulationInfo xmlns:qbp="http://www.qbp-simulator.com/Schema201212" id="qbp_8cb2d2bd-ec38-4d11-8875-2c76eab49d1b" processInstances="45" startDateTime="2012-03-12T21:59:59.999999+00:00" currency="EUR">
     <qbp:arrivalRateDistribution type="FIXED" mean="36060" arg1="0" arg2="0">
       <qbp:timeUnit>seconds</qbp:timeUnit>
     </qbp:arrivalRateDistribution>

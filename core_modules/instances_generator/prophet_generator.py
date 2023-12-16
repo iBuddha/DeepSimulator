@@ -22,11 +22,11 @@ from support_modules.common import FileExtensions as Fe
 
 import logging
 
-logger = logging.getLogger('fbprophet.plot')
+logger = logging.getLogger('prophet.plot')
 logger.setLevel(logging.CRITICAL)
-from fbprophet import Prophet
-from fbprophet.serialize import model_to_json, model_from_json
-from fbprophet.diagnostics import cross_validation, performance_metrics
+from prophet import Prophet
+from prophet.serialize import model_to_json, model_from_json
+from prophet.diagnostics import cross_validation, performance_metrics
 
 from numpy.random import triangular as triang
 
@@ -98,6 +98,8 @@ class ProphetGenerator:
         for params in all_params:
             params['growth'] = 'logistic'
             try:
+                if df_train["ds"].dt.tz:
+                    df_train["ds"] = df_train["ds"].dt.tz_convert(None)
                 m = Prophet(**params).fit(df_train)  # Fit model with given params
                 df_cv = cross_validation(m, horizon=days, period=periods, parallel="processes")
                 df_p = performance_metrics(df_cv, rolling_window=1)

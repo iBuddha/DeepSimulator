@@ -96,8 +96,9 @@ class StochasticProcessModelGenerator(SeqGenerator):
         sim_log = pd.read_csv(sim_log)
         sim_log = self.sort_log(sim_log)
         sim_log[La.CASE_ID] = sim_log[La.CASE_ID] + 1
-        sim_log[La.CASE_ID] = sim_log[La.CASE_ID].astype('string')
-        sim_log[La.CASE_ID] = f"Case{sim_log[La.CASE_ID]}"
+        # sim_log[La.CASE_ID] = sim_log[La.CASE_ID].astype('string')
+        # sim_log[La.CASE_ID] = f"Case{sim_log[La.CASE_ID]}"
+        sim_log[La.CASE_ID] = sim_log[La.CASE_ID].apply(lambda x: f"Case{x}")
         return sim_log
 
     def clean_time_stamps(self):

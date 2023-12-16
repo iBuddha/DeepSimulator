@@ -282,6 +282,7 @@ class DualIntercasesPredictor():
     def _initialize_exec_state(sequences):
         execution_state = dict()
         for k, transitions in sequences.items():
+            # print("k in sequence is " + k)
             execution_state[k] = {'state': InstanceState.WAITING, 'transitions': transitions}
         return execution_state
 
